@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type = "text/css" href="css/index.css" />
+
+
+
+
+        <!-- temporarily moved to head whilst we develop app...-->
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/trip.js"></script>
+        <title>Dose</title>
+    </head>
+    <body>
+
+
+
+  <!-- Login Page -->
+  <div data-role="page" data-dialog="true" id="login">
+		<div data-role="header">
+	    <h3>Dose</h3>
+		</div><!-- /header -->
+    <div role="main" class="ui-content">
+      <ul data-role="fieldcontain" class="ui-hide-label">
+        <form method="post">
+          <li>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" placeholder="email" data-corners="false"/>
+          </li>
+          <li>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
+          </li>
+          <li>
+            <a href="#home" data-role="button" data-corners="false" data-transition="slide">Login</a>
+            <!--
+              <a href="home" data-role="button" data-corners="false">Login</a>
+
+              Submit button javascript for future reference
+              https://api.jquery.com/submit/
+              <input type="submit" value="Login" data-corners="false" />
+            -->
+          </li>
+          <li>
+            <a href="#signup" data-role="button" data-corners="false" data-transition="slide">Sign Up</a>
+          </li>
+        </form>
+      </ul>
+    </div>
+  </div><!-- /Login Page -->
+
+  <!-- Sign Up Page -->
+  <div data-role="page" data-dialog="true" id="signup">
+    <div data-role="header">
+      <h3>Sign Up</h3>
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+      <ul data-role="fieldcontain" class="ui-hide-label">
+        <form method="post">
+          <li>
+            <label for="name"></label>
+            <input type="text" name="name" id="name" value="" placeholder="name" data-corners="false"/>
+          </li>
+          <li>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" value="" placeholder="email" data-corners="false"/>
+          </li>
+          <li>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
+          </li>
+          <li>
+            <a href="#home" data-role="button" data-corners="false" data-transition="slide">Sign Up</a>
+            <!--Change href to a welcome page for new users.-->
+          </li>
+        </form>
+      </ul>
+    </div><!-- /Content -->
+  </div><!-- /SignUp -->
+
+  <!-- Home Page -->
+  <div data-role="page" id="home">
+		<div data-role="header">
+      <a href="#settings" class = "ui-btn ui-shadow ui-corner-all  ui-icon-bars ui-btn-icon-notext" data-transition="slide" ></a>
+	    <h3>Dose</h3>
+      <a href="#addmedPopup" class = "ui-btn ui-shadow ui-corner-all  ui-icon-plus ui-btn-icon-notext" data-transition="slide" ></a>
+		</div><!-- /header -->
+	  <div role="main" class="ui-content">
+		    <!-- listview example -->
+	    <div>
+			  <ul data-role="listview" data-inset="true" id="meds">
+			  <li data-role="list-divider" role="heading" >recent meds</li>
+			  <li class="med regular" background-color="#8c8cd9">
+			    <a href="#schedule" data-transition="slide">
+			      <h3>Acetominophen</h3> <!-- change js to auto-generate sections */ -->
+			      <p class="status" id="last-dose">last dose: 9:01 PM, yesterday, 100 mg</p>
+            <p class="status" id="next-dose">next dose: 9:00 PM, 100 mg</p>
+            <p class="status" id="content-in-body">content in body: 50%</p>
+			    </a>
+			  </li>
+        <li class="med regular" id="Spot" background-color="#8c8cd9">
+			    <a href="#schedule" data-transition="slide">
+			      <h3>Zyrtec</h3> <!-- change js to auto-generate sections */ -->
+			      <p class="status" id="last-dose">last dose: 9:01 PM yesterday, 100 mg</p>
+            <p class="status" id="next-dose">next dose: 9:00 PM, 100 mg</p>
+            <p class="status" id="content-in-body">content in body: 40%</p>
+			    </a>
+			  </li>
+        <li class="med as-needed" id="Spot" background-color="#8181e4">
+          <a href="#schedule" data-transition="slide">
+            <h3>Ibuprofen</h3> <!-- change js to auto-generate sections */ -->
+            <p class="status" id="last-dose">last dose: 11:23 AM, 200 mg</p>
+            <p class="status" id="next-dose">next dose: as needed after 3:23 PM</p>
+            <p class="status" id="content-in-body">content in body: 30%</p>
+          </a>
+        </li>
+			  </ul>
+        <p>Interactions: none</p>
+       <a href="#signup" data-role="button" data-corners="false" data-transition="slide">Check Interactions</a>
+	    </div>
+		</div><!-- /content -->
+	</div><!-- /Home Page -->
+
+<!--
+  <!-- Extended schedule Page -->
+  <div data-role="page" id="schedule">
+    <div data-role="header">
+                    <a href="#home" data-rel="back" class = "ui-btn ui-shadow ui-corner-all  ui-icon-carat-l ui-btn-icon-notext"></a>
+      <h3>profile</h3><!--insert med name -->
+             <a href="#medsettings" class = "ui-btn ui-shadow ui-corner-all ui-icon-gear ui-btn-icon-notext" data-transition="slide"></a>
+    </div> <!-- /header -->
+    <div role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true">
+			  <li data-role="list-divider" role="heading">Schedule</li>
+			  <li>
+			    <a href="#schedule" data-transition="slide">
+			      <h3>Feed</h3>
+			      <p><strong>Last taken: 9:01pm yesterday.</strong></p>
+			      <p>No issues.</p>
+			    </a>
+			  </li>
+			  <li>
+			    <a href="#schedule" data-transition="slide">
+			      <h3>Meds</h3>
+			      <p>Missed meds!</p>
+			    </a>
+			  </li>
+			  </ul> <!--add more fields to the ul based on med's needs-->
+    </div>
+  </div><!-- /Extended schedule Page -->
+-->
+
+  <!-- med Settings Page -->
+  <div data-role="page" id="schedule">
+    <div data-role="header">
+      <a href="#home" data-rel="back" class = "ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" ></a><!-- return to profile-->
+      <a href="#" data-rel="back" class = "ui-btn ui-shadow ui-corner-all  ui-icon-edit ui-btn-icon-notext"></a>
+      <h3>Med Timings</h3>
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+      <h1>Acetominophen</h1> <!-- change js to set it to the name of the med -->
+      <!--http://demos.jquerymobile.com/1.4.5/flipswitch/#&ui-state=dialog-->
+      <p>9:00 PM</p>
+      <label for="Notes"></label>
+      <input type="text" name="notes" id="notes" value="" placeholder="add note" data-corners="false"/>
+    </div><!-- /content -->
+    <div>
+
+
+    </div>
+  </div><!-- /medSettings -->
+
+  <!-- Settings Page -->
+  <div data-role="page" id="settings">
+    <div data-role="header">
+              <p><a href="#home" class = "ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" ></a></p>
+      <h3>Settings</h3>
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+
+    </div><!-- /content -->
+  </div><!-- /Settings -->
+
+
+
+
+
+
+    </body>
+    <script src="index.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js.js"></script>
+    <script src="jquery-2.1.4.min.js"></script>
+</html>
